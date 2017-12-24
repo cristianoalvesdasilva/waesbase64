@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WAES.Cris.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WAES.Cris.WebApi.App_Start.NinjectWebCommon.Start">
+            <summary>
+            Starts the application
+            </summary>
+        </member>
+        <member name="M:WAES.Cris.WebApi.App_Start.NinjectWebCommon.Stop">
+            <summary>
+            Stops the application.
+            </summary>
+        </member>
+        <member name="M:WAES.Cris.WebApi.App_Start.NinjectWebCommon.CreateKernel">
+            <summary>
+            Creates the kernel that will manage your application.
+            </summary>
+            <returns>The created kernel.</returns>
+        </member>
+        <member name="M:WAES.Cris.WebApi.App_Start.NinjectWebCommon.RegisterServices(Ninject.IKernel)">
+            <summary>
+            Load your modules or register your services here!
+            </summary>
+            <param name="kernel">The kernel.</param>
+        </member>
+        <member name="T:WAES.Cris.WebApi.Controllers.BaseController">
+            <summary>
+            Holds a set of common functions for API controllers.
+            </summary>
+        </member>
+        <member name="M:WAES.Cris.WebApi.Controllers.BaseController.ExecAndHandleAsync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Executes a given action and handles any thrown exception.
+            </summary>
+            <param name="action">Async action to be executed and handled.</param>
+            <returns><see cref="T:System.Threading.Tasks.Task`1"/> instance for a successful execution.</returns>
+        </member>
+        <member name="M:WAES.Cris.WebApi.Controllers.BaseController.ExecAndHandleAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Executes a given action and handles any thrown exception.
+            Returns <see cref="T:System.Threading.Tasks.Task`1"/> instance for a successful execution.
+            <para>
+            Should <paramref name="action"/> run successfully, then <see cref="F:System.Net.HttpStatusCode.OK"/> is returned along with its result.
+            Otherwise <see cref="F:System.Net.HttpStatusCode.BadRequest"/> along with the very error message.
+            </para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="action">Async action to be executed and handled.</param>
+            <returns><see cref="T:System.Threading.Tasks.Task`1"/> instance for a successful execution.</returns>
+        </member>
+        <member name="T:WAES.Cris.WebApi.Controllers.DiffsController">
+            <summary>
+            Responsible for persisting and comparing <see cref="T:WAES.Cris.Model.BinData"/> records.
+            </summary>
+        </member>
+        <member name="M:WAES.Cris.WebApi.Controllers.DiffsController.#ctor(WAES.Cris.Services.IBinDataService)">
+            <summary>
+            Initializes an instance of <see cref="T:WAES.Cris.WebApi.Controllers.DiffsController"/> with an inject instance of <see cref="T:WAES.Cris.Services.IBinDataService"/>.
+            </summary>
+            <param name="binDataService"></param>
+        </member>
+        <member name="M:WAES.Cris.WebApi.Controllers.DiffsController.GetDiffAsync(System.Int64)">
+            <summary>
+            Gets the differences between 'left' and 'right' content for an existing record.
+            </summary>
+            <param name="id">Unique identifier associated with an existing record.</param>
+            <returns><see cref="T:System.Threading.Tasks.Task`1"/> wrapping a <see cref="T:WAES.Cris.Model.DTO.DataDiffResultDto"/> instance for a successful comparison.
+            <para>
+            Should and error happen, then <see cref="F:System.Net.HttpStatusCode.BadRequest"/> is returned along with the error message.
+            </para>
+            </returns>
+        </member>
+        <member name="M:WAES.Cris.WebApi.Controllers.DiffsController.UpsertLeftAsync(System.Int64,WAES.Cris.Model.DTO.PostBinDataDto)">
+            <summary>
+            Creates a record should none be found for the given <paramref name="id"/>
+            and sets its <see cref="P:WAES.Cris.Model.BinData.LeftContent"/>, otherwise simply performs the latter.
+            </summary>
+            <param name="id">Unique identifier associated with an existing <see cref="T:WAES.Cris.Model.BinData"/> record, or to be used should a new record be created.</param>
+            <param name="data">Json with a 'data' property holding a base64 string.</param>
+            <returns><see cref="F:System.Net.HttpStatusCode.OK"/> for a successful execution, otherwise <see cref="F:System.Net.HttpStatusCode.BadRequest"/></returns>
+        </member>
+        <member name="M:WAES.Cris.WebApi.Controllers.DiffsController.UpsertRightAsync(System.Int64,WAES.Cris.Model.DTO.PostBinDataDto)">
+            <summary>
+            Creates a <see cref="T:WAES.Cris.Model.BinData"/> record should none be found for the given <paramref name="id"/>
+            and sets its <see cref="P:WAES.Cris.Model.BinData.RightContent"/>, otherwise simply performs the latter.
+            </summary>
+            <param name="id">Unique identifier associated with an existing <see cref="T:WAES.Cris.Model.BinData"/> record, or to be used should a new record be created.</param>
+            <param name="data">Json with a 'data' property holding a base64 string.</param>
+            <returns><see cref="F:System.Net.HttpStatusCode.OK"/> for a successful execution, otherwise <see cref="F:System.Net.HttpStatusCode.BadRequest"/></returns>
+        </member>
+    </members>
+</doc>
