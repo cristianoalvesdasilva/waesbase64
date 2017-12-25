@@ -27,22 +27,22 @@ namespace WAES.Cris.UnitTests.AsyncDbSet
 
     public object Execute(Expression expression)
     {
-      return inner.Execute(expression);
+      return this.inner.Execute(expression);
     }
 
     public TResult Execute<TResult>(Expression expression)
     {
-      return inner.Execute<TResult>(expression);
+      return this.inner.Execute<TResult>(expression);
     }
 
     public Task<object> ExecuteAsync(Expression expression, CancellationToken cancellationToken)
     {
-      return Task.FromResult(Execute(expression));
+      return Task.FromResult(this.Execute(expression));
     }
 
     public Task<TResult> ExecuteAsync<TResult>(Expression expression, CancellationToken cancellationToken)
     {
-      return Task.FromResult(Execute<TResult>(expression));
+      return Task.FromResult(this.Execute<TResult>(expression));
     }
   }
 }

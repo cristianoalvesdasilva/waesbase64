@@ -16,16 +16,16 @@ namespace WAES.Cris.UnitTests.AsyncDbSet
 
     public void Dispose()
     {
-      inner.Dispose();
+      this.inner.Dispose();
     }
 
     public Task<bool> MoveNextAsync(CancellationToken cancellationToken)
     {
-      return Task.FromResult(inner.MoveNext());
+      return Task.FromResult(this.inner.MoveNext());
     }
 
-    public T Current => inner.Current;
+    public T Current => this.inner.Current;
 
-    object IDbAsyncEnumerator.Current => Current;
+    object IDbAsyncEnumerator.Current => this.Current;
   }
 }

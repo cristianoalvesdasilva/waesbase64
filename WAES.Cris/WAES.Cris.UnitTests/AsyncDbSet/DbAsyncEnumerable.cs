@@ -22,7 +22,7 @@ namespace WAES.Cris.UnitTests.AsyncDbSet
 
     IDbAsyncEnumerator IDbAsyncEnumerable.GetAsyncEnumerator()
     {
-      return GetAsyncEnumerator();
+      return this.GetAsyncEnumerator();
     }
 
     IQueryProvider IQueryable.Provider => new DbAsyncQueryProvider<T>(this);

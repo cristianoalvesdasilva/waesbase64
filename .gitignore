@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/WAES.Cris/.vs/WAES.Cris/v15
+/WAES.Cris/.vs/config/applicationhost.config
