@@ -50,6 +50,7 @@ The default db_owner credentials comes from the very person running the VS.
 
 ## Running the tests
 Inside VS (as administrator), navigate to 'Test' menu -> Run -> All Tests.
+
 *Run as administrator is required in order for the integration tests to run propertly. They require a self host http server to be kicked off.
 
 ## Rest API
