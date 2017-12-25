@@ -32,12 +32,13 @@ ASP .Net Web Api used to compare base64 encoded content.
 *No (auto)deployment package is in place yet. Kept it simple though for the purpose of reading, compiling and running the code.
 
 # Via Visual Studio (2015 or 2017) using IIS Express
-1) Set WAES.Cris.WebApi as startup project.
-2) Run the solution
-3) WAES.Cris.WebApi is listening on http://localhost:56216/ (hosted on VS IIS Express) - You can change the port at your will.
-4) The DbContext is set up to create the database (WAES) should it not exist. The database will be created on (LocalDb)\MSSQLLocalDB.
+1) Open VS as administrator and load the solution.
+2) Set WAES.Cris.WebApi as startup project.
+3) Run the solution
+4) WAES.Cris.WebApi is listening on http://localhost:56216/ (hosted on VS IIS Express) - You can change the port at your will.
+5) The DbContext is set up to create the database (WAES) should it not exist. The database will be created on (LocalDb)\MSSQLLocalDB.
 The default db_owner credentials comes from the very person running the VS.
-5) Swagger will be avaliable @ http://localhost:56216/swagger
+6) Swagger will be avaliable @ http://localhost:56216/swagger
 
 # Via IIS
 1) Extract WAES.Cris.WebApi.zip to a folder of your choice.
@@ -48,7 +49,8 @@ The default db_owner credentials comes from the very person running the VS.
 6) Kick off the API URL/Swagger (Ex: http://localhost/WAES.Cris/Swagger) and enjoy.
 
 ## Running the tests
-Inside VS, navigate to 'Test' menu -> Run -> All Tests.
+Inside VS (as administrator), navigate to 'Test' menu -> Run -> All Tests.
+*Run as administrator is required in order for the integration tests to run propertly. They require a self host http server to be kicked off.
 
 ## Rest API
 
